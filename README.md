@@ -61,6 +61,8 @@ npm run dev
 6. Click **Deploy site** — it'll be live in ~2 minutes
 7. Netlify gives you a URL like `https://ripple-abc123.netlify.app`
 
+https://fabulous-snickerdoodle-6abf6d.netlify.app/
+
 Optional: in Netlify **Domain settings** you can set a custom subdomain like `ripple-yourname.netlify.app` for free.
 
 ---

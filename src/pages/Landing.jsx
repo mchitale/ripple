@@ -1,9 +1,16 @@
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '../components/UI.jsx'
+import { useAuth } from '../lib/auth.jsx'
 import styles from './Landing.module.css'
 
 export default function Landing() {
   const navigate = useNavigate()
+  const { session, loading } = useAuth()
+
+  useEffect(() => {
+    if (!loading && session) navigate('/app', { replace: true })
+  }, [session, loading])
   return (
     <div className={styles.page}>
       <div className={styles.blob1} />
