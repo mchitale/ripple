@@ -5,12 +5,14 @@ import { getAvatarColour, getInitials } from '../lib/utils.js'
 import Checkin from './Checkin.jsx'
 import Feed from './Feed.jsx'
 import Insights from './Insights.jsx'
+import Members from './Members.jsx'
 import styles from './AppShell.module.css'
 
 const TABS = [
   { id: 'checkin',  label: 'Check-in', icon: '✏️' },
   { id: 'feed',     label: 'Feed',     icon: '🌿' },
   { id: 'insights', label: 'Insights', icon: '📊' },
+  { id: 'members',  label: 'Members',  icon: '👥' },
 ]
 
 export default function AppShell() {
@@ -91,6 +93,7 @@ export default function AppShell() {
         {activeTab === 'checkin'  && <Checkin onComplete={() => setActiveTab('feed')} />}
         {activeTab === 'feed'     && <Feed />}
         {activeTab === 'insights' && <Insights />}
+        {activeTab === 'members'  && <Members />}
       </main>
 
       {/* Bottom nav */}

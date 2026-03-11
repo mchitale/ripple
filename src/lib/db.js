@@ -8,7 +8,7 @@ export async function createGroup({ groupName, creatorName, password }) {
   const inviteCode   = generateInviteCode()
   const avatarColour = getAvatarColour(creatorName)
 
-  // Insert group
+  // Insert group (admin_member_id set after member is created)
   const { data: group, error: groupErr } = await supabase
     .from('groups')
     .insert({ name: groupName, invite_code: inviteCode, password_hash: passwordHash })
@@ -26,7 +26,24 @@ export async function createGroup({ groupName, creatorName, password }) {
 
   if (userErr) throw userErr
 
-  return { group, user }
+  // Mark creator as admin
+  await supabase.from('groups').update({ admin_member_id: user.id }).eq('id', group.id)
+
+  return { group: { ...group, admin_member_id: user.id }, user }
+}
+
+export async function kickMember(memberId) {
+  const { error } = await supabase.from('members').delete().eq('id', memberId)
+  if (error) throw error
+}
+
+export async function getGroupAdmin(groupId) {
+  const { data } = await supabase
+    .from('groups')
+    .select('admin_member_id')
+    .eq('id', groupId)
+    .single()
+  return data?.admin_member_id || null
 }
 
 export async function joinGroup({ inviteCode, memberName, password }) {
@@ -49,7 +66,7 @@ export async function joinGroup({ inviteCode, memberName, password }) {
   // Check if name already taken in this group
   const { data: existing } = await supabase
     .from('members')
-    .select('id')
+    .select('*')
     .eq('group_id', group.id)
     .eq('display_name', memberName)
     .single()

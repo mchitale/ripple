@@ -5,11 +5,12 @@
 
 -- GROUPS
 create table if not exists groups (
-  id            uuid primary key default gen_random_uuid(),
-  name          text not null,
-  invite_code   text not null unique,
-  password_hash text not null,
-  created_at    timestamptz default now()
+  id               uuid primary key default gen_random_uuid(),
+  name             text not null,
+  invite_code      text not null unique,
+  password_hash    text not null,
+  admin_member_id  uuid,  -- set after first member is created
+  created_at       timestamptz default now()
 );
 
 -- MEMBERS (one per person per group)
@@ -63,6 +64,10 @@ create policy "Anyone can read groups" on groups
 create policy "Anyone can create a group" on groups
   for insert with check (true);
 
+-- Groups: allow updating admin_member_id after creation
+create policy "Anyone can update a group" on groups
+  for update using (true);
+
 -- Members: anyone can read members (needed for feed avatars)
 create policy "Anyone can read members" on members
   for select using (true);
@@ -70,6 +75,10 @@ create policy "Anyone can read members" on members
 -- Members: anyone can insert themselves
 create policy "Anyone can join as a member" on members
   for insert with check (true);
+
+-- Members: admin can delete (kick) members
+create policy "Anyone can delete a member" on members
+  for delete using (true);
 
 -- Checkins: anyone can read checkins (feed is open within the group)
 create policy "Anyone can read checkins" on checkins
