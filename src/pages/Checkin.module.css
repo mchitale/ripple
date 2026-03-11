@@ -1,4 +1,29 @@
-.page {
+.editBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--terracotta-pale);
+  border: 1.5px solid var(--terracotta-light);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 1rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+  color: var(--terracotta);
+  font-weight: 500;
+}
+
+.editCancel {
+  background: none;
+  border: none;
+  font-size: 0.8rem;
+  color: var(--terracotta);
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  text-decoration: underline;
+  padding: 0;
+}
+
+
   padding: 1.25rem 1.25rem 2rem;
   max-width: 540px;
   margin: 0 auto;

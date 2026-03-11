@@ -20,6 +20,12 @@ export default function AppShell() {
   const navigate   = useNavigate()
   const [activeTab, setActiveTab] = useState('checkin')
   const [showMenu,  setShowMenu]  = useState(false)
+  const [editEntry, setEditEntry] = useState(null)
+
+  function handleEdit(checkin) {
+    setEditEntry(checkin)
+    setActiveTab('checkin')
+  }
 
   function handleSwitch(groupId) {
     switchGroup(groupId)
@@ -90,8 +96,8 @@ export default function AppShell() {
 
       {/* Content */}
       <main className={styles.main}>
-        {activeTab === 'checkin'  && <Checkin onComplete={() => setActiveTab('feed')} />}
-        {activeTab === 'feed'     && <Feed />}
+        {activeTab === 'checkin'  && <Checkin onComplete={() => setActiveTab('feed')} editEntry={editEntry} onClearEdit={() => setEditEntry(null)} />}
+        {activeTab === 'feed'     && <Feed onEdit={handleEdit} />}
         {activeTab === 'insights' && <Insights />}
         {activeTab === 'members'  && <Members />}
       </main>
