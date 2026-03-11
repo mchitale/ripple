@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useAuth } from '../lib/auth.jsx'
 import { useNavigate } from 'react-router-dom'
+import { getAvatarColour, getInitials } from '../lib/utils.js'
 import Checkin from './Checkin.jsx'
 import Feed from './Feed.jsx'
 import Insights from './Insights.jsx'
@@ -13,15 +14,23 @@ const TABS = [
 ]
 
 export default function AppShell() {
-  const { session, logout } = useAuth()
-  const navigate = useNavigate()
+  const { session, allSessions, switchGroup, leaveGroup } = useAuth()
+  const navigate   = useNavigate()
   const [activeTab, setActiveTab] = useState('checkin')
-  const [showMenu, setShowMenu]   = useState(false)
+  const [showMenu,  setShowMenu]  = useState(false)
 
-  function handleLogout() {
-    logout()
-    navigate('/')
+  function handleSwitch(groupId) {
+    switchGroup(groupId)
+    setShowMenu(false)
+    setActiveTab('checkin')
   }
+
+  function handleLeave() {
+    leaveGroup()
+    navigate('/', { replace: true })
+  }
+
+  const otherGroups = allSessions.filter(s => s.groupId !== session?.groupId)
 
   return (
     <div className={styles.shell}>
@@ -42,11 +51,36 @@ export default function AppShell() {
               <span className={styles.dropdownName}>{session.userName}</span>
               <span className={styles.dropdownGroup}>{session.groupName} · {session.inviteCode}</span>
             </div>
+
             <button className={styles.dropdownItem} onClick={() => { setShowMenu(false); navigator.clipboard?.writeText(session.inviteCode) }}>
               📋 Copy invite code
             </button>
-            <button className={styles.dropdownItem + ' ' + styles.dropdownLogout} onClick={handleLogout}>
-              Leave group
+
+            {/* Switch group */}
+            {otherGroups.length > 0 && (
+              <>
+                <div className={styles.dropdownDivider}>Switch group</div>
+                {otherGroups.map(s => (
+                  <button key={s.groupId} className={styles.dropdownItem} onClick={() => handleSwitch(s.groupId)}>
+                    <span
+                      className={styles.switchAvatar}
+                      style={{ background: getAvatarColour(s.groupName) }}
+                    >
+                      {getInitials(s.groupName)}
+                    </span>
+                    {s.groupName}
+                    <span className={styles.switchMeta}>{s.userName}</span>
+                  </button>
+                ))}
+              </>
+            )}
+
+            <button className={styles.dropdownItem} onClick={() => { setShowMenu(false); navigate('/') }}>
+              ＋ Join / create a group
+            </button>
+
+            <button className={styles.dropdownItem + ' ' + styles.dropdownLogout} onClick={handleLeave}>
+              Leave this group
             </button>
           </div>
         </div>

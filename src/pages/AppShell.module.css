@@ -97,6 +97,35 @@
   transition: background 0.15s;
 }
 .dropdownItem:hover { background: var(--cream); }
+.dropdownDivider {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--text-muted);
+  padding: 0.6rem 1.1rem 0.3rem;
+  border-top: 1px solid var(--cream-dark);
+  margin-top: 0.25rem;
+}
+
+.switchAvatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: white;
+  flex-shrink: 0;
+}
+
+.switchMeta {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
 .dropdownLogout { color: var(--terracotta); }
 
 /* Main content */
