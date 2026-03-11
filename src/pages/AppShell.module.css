@@ -1,0 +1,139 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.header {
+  background: var(--white);
+  padding: 0.9rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--cream-dark);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.wordmark {
+  font-size: 1.35rem;
+  color: var(--brown);
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.groupBadge {
+  background: var(--olive-pale);
+  color: var(--olive);
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.28rem 0.75rem;
+  border-radius: 100px;
+}
+
+.menuBtn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+.menuBtn:hover { background: var(--cream-dark); }
+
+/* Dropdown */
+.dropdownOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+}
+.dropdown {
+  position: absolute;
+  top: 56px;
+  right: 1rem;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 32px rgba(74,55,40,0.15);
+  min-width: 220px;
+  overflow: hidden;
+  animation: fadeUp 0.2s ease both;
+}
+.dropdownUser {
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid var(--cream-dark);
+}
+.dropdownName {
+  display: block;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--brown);
+}
+.dropdownGroup {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+.dropdownItem {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.8rem 1.1rem;
+  background: none;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.dropdownItem:hover { background: var(--cream); }
+.dropdownLogout { color: var(--terracotta); }
+
+/* Main content */
+.main {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Bottom nav */
+.nav {
+  background: var(--white);
+  border-top: 1px solid var(--cream-dark);
+  display: flex;
+  position: sticky;
+  bottom: 0;
+  z-index: 50;
+}
+
+.navTab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.7rem 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  color: var(--text-muted);
+  border-top: 2px solid transparent;
+}
+
+.navActive {
+  color: var(--terracotta);
+  border-top-color: var(--terracotta);
+}
+
+.navIcon  { font-size: 1.1rem; }
+.navLabel { font-size: 0.7rem; font-weight: 500; font-family: 'DM Sans', sans-serif; }

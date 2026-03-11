@@ -1,0 +1,176 @@
+.page {
+  padding: 1.25rem 1.25rem 2rem;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.greeting {
+  margin-bottom: 1.25rem;
+}
+.greeting h2 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--brown);
+}
+.greeting p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.periodToggle {
+  display: flex;
+  background: var(--cream-dark);
+  border-radius: 100px;
+  padding: 3px;
+  margin-bottom: 1.25rem;
+}
+.periodBtn {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 100px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--text-muted);
+  border: none;
+  background: none;
+  font-family: 'DM Sans', sans-serif;
+}
+.active {
+  background: var(--white);
+  color: var(--terracotta);
+  box-shadow: 0 1px 6px rgba(74,55,40,0.1);
+}
+
+.cardLabel {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.emojiRow {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+.emojiBtn {
+  width: 46px; height: 46px;
+  border-radius: 12px;
+  border: 2px solid var(--cream-dark);
+  background: var(--cream);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex; align-items: center; justify-content: center;
+}
+.emojiBtn:hover { border-color: var(--terracotta-light); transform: scale(1.05); }
+.emojiBtn.selected { border-color: var(--terracotta); background: var(--terracotta-pale); }
+
+.sliderRow {
+  display: flex; align-items: center; gap: 1rem;
+  margin-bottom: 0.35rem;
+}
+.slider {
+  flex: 1;
+  -webkit-appearance: none;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--cream-dark);
+  outline: none;
+  cursor: pointer;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--terracotta);
+  box-shadow: 0 2px 8px rgba(196,105,74,0.4);
+  transition: transform 0.15s;
+}
+.slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+.sliderValue {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--terracotta);
+  min-width: 2.2rem;
+  text-align: right;
+}
+.sliderLabels {
+  display: flex; justify-content: space-between;
+  font-size: 0.7rem; color: var(--text-muted);
+}
+
+.toggleRow { display: flex; gap: 0.6rem; }
+.toggleBtn {
+  flex: 1;
+  padding: 0.6rem 0.4rem;
+  border-radius: 10px;
+  border: 2px solid var(--cream-dark);
+  background: var(--cream);
+  font-size: 0.82rem;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: center;
+  color: var(--text);
+}
+.toggleSelected { border-color: var(--olive); background: var(--olive-pale); color: var(--olive); font-weight: 500; }
+
+.wildcardBadge {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  background: var(--terracotta);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.noteInput {
+  width: 100%;
+  border: 1.5px solid var(--cream-dark);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  background: var(--cream);
+  color: var(--text);
+  resize: none;
+  outline: none;
+  transition: border-color 0.2s;
+  line-height: 1.55;
+}
+.noteInput:focus { border-color: var(--terracotta); }
+
+/* Submitted state */
+.submitted {
+  text-align: center;
+  padding: 3rem 2rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.checkCircle {
+  width: 72px; height: 72px;
+  background: var(--olive);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem;
+  color: white;
+  margin: 0 auto 1.25rem;
+  box-shadow: 0 8px 28px rgba(107,122,71,0.28);
+}
+.submitted h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--brown);
+  margin-bottom: 0.5rem;
+}
+.submitted p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }

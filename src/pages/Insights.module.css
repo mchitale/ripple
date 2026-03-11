@@ -1,0 +1,120 @@
+.page {
+  padding: 1.25rem 1.25rem 2rem;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.heading { font-size: 1.5rem; font-weight: 400; color: var(--brown); margin-bottom: 0.2rem; }
+.sub { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; }
+
+.memberPills {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.pill {
+  display: flex; align-items: center; gap: 0.45rem;
+  background: var(--white);
+  border-radius: 100px;
+  padding: 0.35rem 0.8rem 0.35rem 0.4rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.pillName { font-size: 0.82rem; color: var(--brown); font-weight: 500; }
+.streak   { font-size: 0.75rem; color: var(--text-muted); }
+
+.statsRow {
+  display: flex; gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.statBox {
+  flex: 1;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 1rem 0.75rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  display: flex; flex-direction: column; gap: 0.3rem;
+}
+
+.statVal {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.7rem;
+  color: var(--terracotta);
+}
+
+.statLabel {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.wildcardBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--terracotta);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.insightTitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--brown);
+  margin-bottom: 0.35rem;
+}
+
+.insightDesc {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 1rem;
+}
+
+.barChart {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.4rem;
+  height: 64px;
+}
+
+.barWrap {
+  flex: 1;
+  display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.bar {
+  width: 100%;
+  border-radius: 4px 4px 0 0;
+  min-height: 4px;
+  transition: height 0.6s ease;
+}
+
+.barLabel {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.noData {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
