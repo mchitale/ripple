@@ -20,8 +20,7 @@ Now grab your credentials:
 - Go to **Settings → API**
 - Copy your **Project URL** (looks like `https://xxxx.supabase.co`)
 - Copy your **anon public** key (long string starting with `eyJ...`)
-https://ggzhsirxamlsxdvwptiz.supabase.co
-anon_public eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdnemhzaXJ4YW1sc3hkdndwdGl6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMxOTg5NTUsImV4cCI6MjA4ODc3NDk1NX0.3RheGop8QIb5KAGkNXCxtWVe4vyU-rPNEL10s2gtm58
+
 ---
 
 ### Step 2 — Local setup
@@ -60,8 +59,6 @@ npm run dev
    - `VITE_SUPABASE_ANON_KEY` → your Supabase anon key
 6. Click **Deploy site** — it'll be live in ~2 minutes
 7. Netlify gives you a URL like `https://ripple-abc123.netlify.app`
-
-https://fabulous-snickerdoodle-6abf6d.netlify.app/
 
 Optional: in Netlify **Domain settings** you can set a custom subdomain like `ripple-yourname.netlify.app` for free.
 

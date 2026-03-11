@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '../components/UI.jsx'
 import { useAuth } from '../lib/auth.jsx'
@@ -9,12 +8,7 @@ export default function Landing() {
   const navigate = useNavigate()
   const { session, allSessions, switchGroup, loading } = useAuth()
 
-  // If only one group saved and it's active, skip straight to app
-  useEffect(() => {
-    if (!loading && session && allSessions.length === 1) {
-      navigate('/app', { replace: true })
-    }
-  }, [session, allSessions, loading])
+  // Always show the landing/groups screen — let the user choose
 
   function handleSwitch(groupId) {
     switchGroup(groupId)
@@ -60,7 +54,9 @@ export default function Landing() {
         )}
 
         <div className={styles.actions}>
-          <Button onClick={() => navigate('/join')}>Join another group</Button>
+          <Button onClick={() => navigate('/join')}>
+            {allSessions.length > 0 ? 'Join another group' : 'Join a group'}
+          </Button>
           <Button variant="secondary" onClick={() => navigate('/create')}>Create a group</Button>
         </div>
       </div>
